@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+    const [, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
 
     useEffect(() => {
