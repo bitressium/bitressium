@@ -209,10 +209,6 @@ const Navbar = () => {
                                     ))}
                                 </ul>
 
-                                <div className="d-none d-md-flex gap-2 ms-auto">
-                                    <a href="/login" className="btn-login">Login</a>
-                                    <a href="/register" className="btn-signup">Apply Now</a>
-                                </div>
 
                                 <div className="mobile-menu d-md-none">
                                     {['home', 'about', 'services', 'portfolio', 'contact'].map((section) => (
