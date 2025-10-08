@@ -220,11 +220,6 @@ const Navbar = () => {
                                             {section.charAt(0).toUpperCase() + section.slice(1)}
                                         </a>
                                     ))}
-
-                                    <div className="mt-3 d-flex flex-column gap-2">
-                                        <a href="/login" className="btn-login text-center">Login</a>
-                                        <a href="/register" className="btn-signup text-center">Apply Now</a>
-                                    </div>
                                 </div>
                             </div>
                         </nav>

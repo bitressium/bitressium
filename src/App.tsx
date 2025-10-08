@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Navbar from "./components/Navbar.tsx";
+import OrbitHero from "./components/OrbitHero.tsx";
 
 const App = () => {
 
@@ -69,7 +70,7 @@ const App = () => {
             <style>{`
                 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css');
                 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
-                
+                @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
                 * {
                     margin: 0;
                     padding: 0;
@@ -77,7 +78,7 @@ const App = () => {
                 }
 
                 body {
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+                    font-family: -apple-system, Inter, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
                     overflow-x: hidden;
                     line-height: 1.6;
                 }
@@ -434,17 +435,12 @@ const App = () => {
                             <div className="col-lg-6">
                                 <div className="fade-in-up">
                                     <div className="mb-3">
-                                        <span className="badge rounded-pill px-3 py-2 hero-badge">
-                                            <i className="bi bi-lightbulb-fill me-2"></i>
-                                            Smart Systems. Real Solutions.
-                                        </span>
+
                                     </div>
                                     <h1 className="display-3 fw-bold mb-4">
-                                        Welcome to <br />
-                                        <span className="hero-gradient glow">Bitressium</span>
-                                    </h1>
+                                        Where Ideas Turn Into Intelligent Systems.</h1>
                                     <p className="lead mb-4 text-light-custom">
-                                        A technology solutions studio focused on developing intelligent, efficient, and modern systems for businesses, organizations, and individuals.
+                                        Code. Automate. Elevate.
                                     </p>
                                     <div className="d-flex flex-wrap gap-3">
                                         <a href="#services" className="btn btn-lg btn-gradient rounded-pill">
@@ -456,13 +452,13 @@ const App = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-6">
-                                <div className="floating">
-                                    <div className="d-flex justify-content-center">
-                                        <div className="hero-glow-orb"></div>
-                                    </div>
+                            <div className="col-lg-6 d-flex justify-content-center align-items-center">
+                                <div className="position-relative text-center">
+                                    <div className="hero-glow-orb position-absolute top-50 start-50 translate-middle"></div>
+                                    <OrbitHero />
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </section>
@@ -508,7 +504,7 @@ const App = () => {
                                     </div>
                                     <h4>Our Vision</h4>
                                     <p className="text-secondary-custom">
-                                        Empowering Filipino developers and businesses with homegrown solutions.
+                                        Empowering businesses with homegrown solutions.
                                     </p>
                                 </div>
                             </div>
