@@ -1,29 +1,7 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Navbar from "./components/Navbar.tsx";
 
 const App = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [activeSection, setActiveSection] = useState('home');
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-
-            const sections = ['home', 'about', 'services', 'portfolio', 'contact'];
-            const current = sections.find(section => {
-                const element = document.getElementById(section);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    return rect.top <= 100 && rect.bottom >= 100;
-                }
-                return false;
-            });
-            if (current) setActiveSection(current);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const services = [
         {
@@ -125,69 +103,6 @@ const App = () => {
                     background: linear-gradient(to bottom, #01161e 0%, #0a1821 100%);
                     min-height: 100vh;
                     color: #eff6e0;
-                }
-
-                .navbar-custom {
-                    background: rgba(1, 22, 30, 0.9);
-                    backdrop-filter: blur(10px);
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    padding: 1rem 0;
-                    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-                }
-
-                .navbar-custom.scrolled {
-                    box-shadow: 0 4px 30px rgba(18, 69, 89, 0.3);
-                }
-
-                .navbar-brand {
-                    font-size: 1.5rem;
-                    font-weight: 700;
-                    letter-spacing: -0.5px;
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    color: #eff6e0;
-                    text-decoration: none;
-                }
-
-                .navbar-brand:hover {
-                    transform: translateY(-2px);
-                    color: #eff6e0;
-                }
-
-                .brand-icon {
-                    color: #598392;
-                    font-size: 1.5rem;
-                }
-
-                .nav-link-custom {
-                    position: relative;
-                    padding: 0.5rem 1rem;
-                    margin: 0 0.25rem;
-                    color: #aec3b0;
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    font-weight: 500;
-                    text-decoration: none;
-                }
-
-                .nav-link-custom::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    width: 0;
-                    height: 2px;
-                    background: linear-gradient(135deg, #124559 0%, #598392 100%);
-                    transform: translateX(-50%);
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                }
-
-                .nav-link-custom:hover,
-                .nav-link-custom.active {
-                    color: #eff6e0;
-                }
-
-                .nav-link-custom:hover::after,
-                .nav-link-custom.active::after {
-                    width: 80%;
                 }
 
                 .hero-badge {
@@ -510,31 +425,7 @@ const App = () => {
 
             <div className="app-container">
                 {/* Navigation */}
-                <nav className={`navbar navbar-expand-lg navbar-dark fixed-top ${scrolled ? 'navbar-custom scrolled' : 'navbar-custom'}`}>
-                    <div className="container">
-                        <a className="navbar-brand d-flex align-items-center" href="#home">
-                            <i className="bi bi-lightning-charge-fill me-2 brand-icon"></i>
-                            <span className="fw-bold">Bitressium</span>
-                        </a>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav ms-auto">
-                                {['home', 'about', 'services', 'portfolio', 'contact'].map((section) => (
-                                    <li key={section} className="nav-item">
-                                        <a
-                                            className={`nav-link nav-link-custom ${activeSection === section ? 'active' : ''}`}
-                                            href={`#${section}`}
-                                        >
-                                            {section.charAt(0).toUpperCase() + section.slice(1)}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+               <Navbar/>
 
                 {/* Hero Section */}
                 <section id="home" className="min-vh-100 d-flex align-items-center position-relative" style={{ paddingTop: '80px' }}>
